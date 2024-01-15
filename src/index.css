@@ -1,3 +1,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+img {
+  width: 300px;
+}
+
+.post {
+  border: 1px solid black;
+  background-color: beige;
+  margin: 2rem;
+}
