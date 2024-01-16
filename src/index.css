@@ -1,3 +1,7 @@
+:root {
+  ---other-color: #006BBB
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -13,7 +17,7 @@ img {
 
 .comment {
   background-color: #FFC872;
-  border: 1px solid black;
+  border: 1px solid #006BBB;
 
 }
 
