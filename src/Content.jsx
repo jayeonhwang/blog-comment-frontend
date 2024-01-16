@@ -58,7 +58,7 @@ const handleClose = () => {
 
 const handleDestroyPost = (post) => {
   console.log("handleDestroyPost", post)
-  axios.delete(`http://localhost:3000/posts/${id}.json`).then(response => {
+  axios.delete(`http://localhost:3000/posts/${post.id}.json`).then(response => {
     setPosts(posts.filter(p=>p.id !== post.id));
     handleClose()
   })
