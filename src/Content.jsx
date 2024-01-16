@@ -33,6 +33,24 @@ const handelShowPost = (post) => {
   setCurrentPost(post)
 }
 
+
+const handleUpdatePost = (id, params, successCallback) => {
+  console.log("handleUpdatePost", params)
+  axios.patch(`http://localhost:3000/posts/${id}.json`,params).then(response =>{
+    setPosts(
+      posts.map(post => {
+       if (post.id === response.data.id) {
+        return response.data
+       } else{
+        return post
+       }
+      })
+    )
+    successCallback()
+    handleClose()
+  })
+}
+
 const handleClose = () => {
   console.log("handleClsoe")
   setIsPostsShowVisible(false)
@@ -47,7 +65,7 @@ useEffect(getIndexPost, [])
       <PostIndex posts ={posts} onShowPost={handelShowPost}/>
       <Modal show={isPostsShowVisible} onClose={handleClose}>
         <h1>Test</h1>
-        <PostShow post={currentPost} />
+        <PostShow post={currentPost} onUpdatePost={handleUpdatePost}/>
       </Modal>
     </main>
   )
